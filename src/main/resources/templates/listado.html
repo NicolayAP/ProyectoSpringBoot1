@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Libros</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Bienvenidos...</h1>
+    <p>Aprendiendo MVC y Capas.</p>
+
+    <nav>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Biblioteca</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <!-- Columna 1 -->
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                        Inicio
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">Libros</a>
+                    <a href="#" class="list-group-item list-group-item-action">Autores</a>
+                    <a href="#" class="list-group-item list-group-item-action">Editoriales</a>
+                    <a href="#" class="list-group-item list-group-item-action">Géneros</a>
+                </div>
+            </div>
+
+            <!-- Columna 2 -->
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                        Libros
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">Agregar Libro</a>
+                    <a href="#" class="list-group-item list-group-item-action">Modificar Libro</a>
+                    <a href="#" class="list-group-item list-group-item-action">Eliminar Libro</a>
+                    <a href="#" class="list-group-item list-group-item-action">Consultar Libro</a>
+                </div>
+            </div>
+
+            <!-- Columna 3 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 1</h5>
+                        <p class="card-text">Texto de ejemplo en la tercera columna.</p>
+                        <a href="#" class="btn btn-primary">Acción</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna 4 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 2</h5>
+                        <p class="card-text">Texto de ejemplo en la cuarta columna.</p>
+                        <a href="#" class="btn btn-success">Otra acción</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://www.uptc.edu.co/portal/wp-content/uploads/2020/06/logo-uptc.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Universidad Pedagógica y Tecnológica de Colombia</h5>
+            <p class="card-text">Ingeniería de Software II</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+    <div class="container mt-4 my-style-destacados">
+        <div class="row">
+            <div th:each="libro : ${libros}" class="col-md-3 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img th:src="${libro.imagenUrl}" class="card-img-top" alt="Imagen del libro">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${libro.nombre}"></h5>
+                        <p class="card-text" th:text="${libro.descripcion}"></p>
+                        <a href="#" class="btn btn-primary">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
