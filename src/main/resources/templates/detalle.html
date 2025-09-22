@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del Libro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <div class="row g-0">
+                        <div class="col-md-4 d-flex align-items-center justify-content-center bg-white">
+                            <img th:src="${libro.imagenUrl}" class="img-fluid rounded-start p-3" alt="Imagen del libro" style="max-height: 300px;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h2 class="card-title mb-3" th:text="${libro.nombre}">Título del Libro</h2>
+                                <p class="card-text" th:text="${libro.descripcion}">Descripción del libro</p>
+                                <ul class="list-group list-group-flush mb-3">
+                                    <li class="list-group-item">
+                                        <strong>Editorial:</strong>
+                                        <span th:text="${libro.editorial != null ? libro.editorial.nombre : 'Sin editorial'}"></span>
+                                    </li>
+                                    <!-- Puedes agregar más campos aquí si los tienes en la entidad -->
+                                </ul>
+                                <a href="/listado" class="btn btn-outline-primary">Volver al listado</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div th:if="${libro == null}" class="alert alert-danger mt-4">
+                    Libro no encontrado.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

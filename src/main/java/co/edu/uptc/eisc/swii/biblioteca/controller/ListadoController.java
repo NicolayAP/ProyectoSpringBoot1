@@ -63,6 +63,6 @@ public class ListadoController {
     public String detalleLibro(@PathVariable Integer id, Model model) {
         Libro libro = libroService.buscarPorId(id);
         model.addAttribute("libro", libro);
-        return "detalle"; // opcional, si tienes vista detalle
+        return "detalle"; 
     }
 }
